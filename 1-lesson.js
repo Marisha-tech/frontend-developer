@@ -39,7 +39,6 @@ d = 2+ b++
 console.log(a)                  // 3
 console.log(b)                  // 3 */
 
-
 // *******************************************************************
 /* // 2. Чему будет равен x в примере ниже?
 var a = 2;
@@ -133,7 +132,7 @@ function alter(a) {
 alter(a) */
 
 // ***********************************************************************
-// 5. Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор return.
+/* // 5. Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор return.
 
 let a = +prompt('Введите значение а')
 let b = +prompt('Введите значение b')
@@ -161,4 +160,84 @@ function del(a, b) {
 console.log(sum(a, b))
 console.log(raz(a, b))
 console.log(umno(a, b))
-console.log(del(a, b))
+console.log(del(a, b)) */
+
+// ***********************************************************************
+/* // 6. Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation), где arg1, arg2 – значения аргументов, operation – строка с названием операции. В зависимости от переданного значения операции выполнить одну из арифметических операций (использовать функции из пункта 3) и вернуть полученное значение (использовать switch).
+a = +prompt('Введите значение a')
+b = +prompt('Введите значение b')
+operation = prompt('Введите знак операции')
+
+function sum(a, b) {
+  return a + b
+}
+
+function raz(a, b) {
+  return a - b
+}
+
+function umno(a, b) {
+  return a * b
+}
+
+function del(a, b) {
+  if (b != 0) {
+    return a / b
+  }
+  return 0
+}
+
+function mathOperation(a, b, operation) {
+  switch (operation) {
+    case '+':
+      // sum(a, b)
+      console.log(sum(a, b))
+      break
+    case '-':
+      console.log(raz(a, b))
+      break
+    case '*':
+      console.log(umno(a, b))
+      break
+    case '/':
+      console.log(del(a, b))
+      break
+    default:
+      console.log('Введен не верный знак')
+  }
+}
+
+mathOperation(a, b, operation) */
+
+// ***********************************************************************
+/* // 7) *Сравнить null и 0. Попробуйте объяснить результат.
+
+let a = null
+let b = 0
+
+console.log(a == b) //false
+console.log(a === b) //false
+console.log(a !== b) //true
+console.log(null > 0) //false
+console.log(null < 0) //false
+console.log(null <= 0) //true
+console.log(null >= 0) //true
+console.log(null !== 0) //true */
+
+// ***********************************************************************
+
+/* // 8) *С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power(val, pow), где val – заданное число, pow – степень.
+let val = +prompt('Введите число, которое нужно возвести в степень')
+let pow = +prompt('Введите степень')
+
+function power(val, pow) {
+  if (pow == 0) {
+    return 1
+  }
+  // return Math.pow(val, pow)
+  // console.log(val * power(val, pow - 1))
+
+  return val * power(val, pow - 1)
+}
+power(val, pow)
+console.log(power(val, pow)) */
