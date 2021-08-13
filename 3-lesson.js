@@ -241,9 +241,9 @@ console.log(deleted) */
   },
 ]
 
-for (good of goods) {
-  console.log(good.title + ' стоит ' + good.price)
-}
+// for (good of goods) {
+//   console.log(good.title + ' стоит ' + good.price)
+// }
 
 //Сумма всех товаров
 function getSum(mas) {
@@ -261,12 +261,73 @@ console.log(getSum(goods)) */
 //простые чила - которые делятся на себя и на 1 (2, 3, 5, 7, 11, 13, 19)
 let number = 20
 let i = 0
+let j = 0
 
 while (i < number) {
-  if (i % 2 != 0 && i % 3 != 0) {
-    console.log(i)
+  while (j < i) {
+    if (number % j != 0) {
+      j++
+    }
   }
+
   i++
+  console.log(i)
 }
+
+// 2. С этого урока начинаем работать с функционалом интернет-магазина. Предположим, есть сущность корзины. Нужно реализовать функционал подсчета стоимости корзины в зависимости от находящихся в ней товаров.
+// 3. Товары в корзине хранятся в массиве. Задачи:
+// a) Организовать такой массив для хранения товаров в корзине;
+// b) Организовать функцию countBasketPrice, которая будет считать стоимость корзины.
+/* let cart = [
+  {
+    title: 'Товар 1',
+    price: 100,
+    quantity: 1,
+  },
+  {
+    title: 'Товар 2',
+    price: 200,
+    quantity: 2,
+  },
+  {
+    title: 'Товар 3',
+    price: 300,
+    quantity: 3,
+  },
+  {
+    title: 'Товар 4',
+    price: 400,
+    quantity: 4,
+  },
+  {
+    title: 'Товар 5',
+    price: 500,
+    quantity: 5,
+  },
+]
+
+function countBasketPrice(mas) {
+  let sum = 0
+  let quantity = 0
+
+  for (item of mas) {
+    sum += item.price
+    quantity += item.quantity
+  }
+  return [sum, quantity]
+}
+
+countBasketPrice(cart)
+console.log(countBasketPrice(cart)) */
+
+// 4.*Вывести с помощью цикла for числа от 0 до 9, не используя тело цикла. Выглядеть это должно так:
+// for(…){// здесь пусто}
+/* let i, one, two
+function numbers(one, two) {
+  for (i = 0; i <= 9; i++) {}
+  return i
+}
+numbers(0, 9)
+console.log(numbers(0, 9)) */
 // **************************************************************
 // **************************************************************
