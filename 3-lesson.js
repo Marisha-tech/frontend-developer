@@ -259,21 +259,42 @@ console.log(getSum(goods)) */
 // ***************************ДЗ***********************************
 // 1. С помощью цикла while вывести все простые числа в промежутке от 0 до 100
 //простые чила - которые делятся на себя и на 1 (2, 3, 5, 7, 11, 13, 19)
-let number = 20
-let i = 0
-let j = 0
+/* let number = 20
+let x = 2
 
-while (i < number) {
-  while (j < i) {
-    if (number % j != 0) {
-      j++
+function checkPrime(number) {
+  let i = 2
+  while (i < number / 2) {
+    if (number % i == 0) {
+      return false
     }
+    i++
   }
-
-  i++
-  console.log(i)
+  return true
 }
 
+while (x <= number) {
+  if (checkPrime(x)) {
+    console.log(x)
+  }
+  x++
+}
+ */
+/* let number = 20
+let i = 2
+while (i <= number) {
+  let j = 2
+  while (j <= i) {
+    if (i % j == 0) {
+      break
+    }
+    j++
+  }
+  if (j == i) {
+    console.log(i)
+  }
+  i++
+} */
 // 2. С этого урока начинаем работать с функционалом интернет-магазина. Предположим, есть сущность корзины. Нужно реализовать функционал подсчета стоимости корзины в зависимости от находящихся в ней товаров.
 // 3. Товары в корзине хранятся в массиве. Задачи:
 // a) Организовать такой массив для хранения товаров в корзине;
@@ -308,26 +329,43 @@ while (i < number) {
 
 function countBasketPrice(mas) {
   let sum = 0
-  let quantity = 0
+  // let quantity = 0
 
   for (item of mas) {
-    sum += item.price
-    quantity += item.quantity
+    sum += item.price * item.quantity
+    // quantity += item.quantity
   }
-  return [sum, quantity]
+  // return [sum, quantity]
+  return sum
 }
 
-countBasketPrice(cart)
+// countBasketPrice(cart)
 console.log(countBasketPrice(cart)) */
 
 // 4.*Вывести с помощью цикла for числа от 0 до 9, не используя тело цикла. Выглядеть это должно так:
 // for(…){// здесь пусто}
 /* let i, one, two
 function numbers(one, two) {
-  for (i = 0; i <= 9; i++) {}
+  for (i = 0; i <= 9; console.log(i++)) {}
   return i
 }
 numbers(0, 9)
 console.log(numbers(0, 9)) */
+
+// 4) *Нарисовать пирамиду с помощью console.log, как показано на рисунке, только у вашей пирамиды должно быть 20 рядов, а не 5:
+// x
+// xx
+// xxx
+// xxxx
+// xxxxx
+// for (let i = 1, line = 'x'; i <= 20; console.log(line), i++, line += 'x') {
+//   console.log()
+// }
+
+/* let x = ''
+for (let i = 0; i < 20; i++) {
+  x += 'x'
+  console.log(x)
+} */
 // **************************************************************
 // **************************************************************
