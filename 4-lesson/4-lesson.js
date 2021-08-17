@@ -109,26 +109,35 @@ let myCar3 = new Car('VW', 1100, 2020) */
 // *********************************ДЗ*********************************
 // 1. Написать функцию, преобразующую число в объект. Передавая на вход число от 0 до 999, мы должны получить на выходе объект, в котором в соответствующих свойствах описаны единицы, десятки и сотни. Например, для числа 245 мы должны получить следующий объект: {‘единицы’: 5, ‘десятки’: 4, ‘сотни’: 2}. Если число превышает 999, необходимо выдать соответствующее сообщение с помощью console.log и вернуть пустой объект.
 
-/* let number = prompt('Введите число')
+let number = prompt('Введите число от 0 до 999')
 let num = []
 let obj = {
-  hundreds: '', //сотни
-  dozens: '', //десятки
-  units: '', //единицы
+  // hundreds: '', //сотни
+  // dozens: '', //десятки
+  // units: '', //единицы
 }
 
 function transformation(number) {
-  if (number <= 999) {
-    num = number.split('')
-    obj.hundreds = num[0]
-    obj.dozens = num[0]
-    obj.units = num[0]
-    console.log(obj)
+  if (number < 0 || number > 999) {
+    console.log('Число ' + number + ' вне диапазона 0 - 999')
   } else {
+    switch (number.length) {
+      case 3:
+        obj.hundreds = number[0]
+        obj.dozens = number[1]
+        obj.units = number[2]
+        break
+      case 2:
+        obj.dozens = number[0]
+        obj.units = number[1]
+        break
+      default:
+        obj.units = number
+    }
     console.log(obj)
   }
 }
-transformation(number) */
+transformation(number)
 
 // 2. Для игры, реализованной на уроке, добавить возможность вывода хода номер n (номер задается пользователем)
 // 3. *На базе игры, созданной на уроке, реализовать игру «Кто хочет стать миллионером?»
