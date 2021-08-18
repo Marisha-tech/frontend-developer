@@ -2,6 +2,25 @@
   margin: 0;
   padding: 0;
 }
+.table {
+  border: 1px solid #000;
+}
+
+.table__tr {
+  border: 1px solid #000;
+  height: 100px;
+}
+.table__td {
+  text-align: center;
+  border: 1px solid #000;
+  width: 100px;
+}
+.table__td--white {
+  background-color: #fff;
+}
+.table__td--black {
+  background-color: #000;
+}
 .desc {
   width: 800px;
   border: 1px solid #000;
@@ -36,12 +55,12 @@
   background-color: black;
 }
 
-.cell:nth-child(10) {
+/* .cell:nth-child(10) {
   background-color: #fff !important;
 }
 .cell:nth-child(1) {
   background-color: #fff !important;
-}
+} */
 
 .row__letter {
   display: flex;
