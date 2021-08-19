@@ -67,6 +67,11 @@
   height: calc(100% / 8);
   text-align: center;
 }
+.column__letter {
+  display: flex;
+  height: calc(100% / 8);
+  text-align: center;
+}
 .cell__number {
   display: flex;
   width: calc(100% / 8);
