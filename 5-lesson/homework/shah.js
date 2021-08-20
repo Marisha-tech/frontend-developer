@@ -1,111 +1,93 @@
-let board = document.querySelector('.board')
-
-let row //строка
-let cell //столбец
+let board = document.querySelector('.board')//ищем div c классом board
 
 let number = [8, 7, 6, 5, 4, 3, 2, 1]
 let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+let alphabetFigures = ['rook', 'horse', 'elephant', 'queen', 'king', 'elephant', 'horse', 'rook']
 
-// let i = 0
-let rowOne = document.createElement('div') //первая строка
-let rowEnd = document.createElement('div') //последняя строка
-
-let columnOne = document.createElement('div') //первая колонка
-let columnEnd = document.createElement('div') //последняя колонка
-
-let flagLine = true //флаг строки
-let flagColumn = true //флаг колонки
-
-//добавление обеих строк
-function cellAlphabet(mas) {
-  rowOne.className = 'row__letter'
-  rowEnd.className = 'row__letter'
-
-  for (let i = 0; i < alphabet.length; i++) {
-    let cellAlphabet = document.createElement('div')
-
-    cellAlphabet.className = 'cell__alphabet'
-    cellAlphabet.innerText = alphabet[i]
-
-    if (flagLine) {
-      rowOne.append(cellAlphabet)
-      board.append(rowOne)
-    } else {
-      rowEnd.append(cellAlphabet)
-      board.append(rowEnd)
-    }
-  }
-}
-
-// добавление ячеек
-function cellNumber(num) {
-  columnOne.className = 'cell__number' //первая ячейка
-  columnEnd.className = 'cell__number' //последняя ячейка
-
-  // for (let i = 0; i < number.length; i++) {
-  //   //создаем строку
-  //   row = document.createElement('div')
-  //   row.className = 'row'
-
-  //   row.append(columnOne) //в строку кладем cell__number
-
-  //   //в каждой строке создаем ячейки. Итого 8 ячеек в строке
-  //   for (let j = 0; j < number.length; j++) {
-  //     //в строке создаем ячейки
-  //     cell = document.createElement('div')
-  //     cell.className = 'cell'
-
-  //     row.append(cell) //кладем 8 ячеек в строку
-  //   }
-  //   board.append(row) //добавляем всё
-  //   row.append(columnEnd) //добавляем ячейку cell__number
-  // }
-}
+сhessBoard();
 
 function сhessBoard() {
-  cellAlphabet(alphabet)
-  columnOne.className = 'cell__number' //первая ячейка
-  columnEnd.className = 'cell__number' //первая ячейка
-
-  for (let i = 0; i < 8; i++) {
-    // создание дива в строке
-    row = document.createElement('div')
-    row.className = 'row'
-    row.id = 'x' + i
-
-    columnOne.innerHTML = '111'
-    // row.append(columnOne)
-
-    for (let j = 0; j < 8; j++) {
-      cell = document.createElement('div')
-      cell.className = 'cell'
-      cell.id = 'j' + j
-
-      row.append(cell)
-      row.firstChild.className = row.firstChild.className = 'cell__number'
-    }
-    // row.append(columnEnd)
-
-    board.append(row) //добавляем всё
-  }
-
-  flagLine = false
-  flagColumn = false
-
-  cellAlphabet(alphabet)
+    cellAlphabet(alphabet, 'cell__alphabet')//первая строка с алфавитом
+    rowCell();
+    cellAlphabet(alphabet, 'cell__alphabet')//последняя строка с алфавитом
 }
 
-сhessBoard()
+//добавление обеих строк
+function cellAlphabet(mas, name) {
+    let row = document.createElement('div')//создаем строку
+    cellNumberDef(row);
+    row.className = 'row__letter'
+    for (let i = 0; i < mas.length; i++) {
+        let cellAlphabet = document.createElement('div')
+        cellAlphabet.className = name
+        cellAlphabet.innerText = mas[i]
+        row.append(cellAlphabet)
+        board.append(row)
+    }
+    cellNumberDef(row);
+}
 
-// У тебя, очевидно, порядок вызовов где-то перепутан. append добавляет в конец, prepend в начало, никакой магии.
-// Просто row ты добавляешь уже после того как добавлены оба row__letter, и, очевидно, не между ними, а в конец.
+//функция для создания ячеек в строке
+function rowCell() {
 
-/* for (let i = 0; i < alphabet.length; i++) {
-  let cellAlphabet = document.createElement('div')
-  cellAlphabet.className = 'cell__alphabet'
-  cellAlphabet.innerText = alphabet[i]
-  if (i == 0) {
-    rowOne.id = 'x' + i
-  }
-  rowOne.append(cellAlphabet)
-} */
+    let index1 = number.length;
+    let index2 = number.length;
+    for (let i = 0; i < number.length; i++) {
+        let row = document.createElement('div')
+        row.className = 'row'
+        row.id = 'x' + i
+        cellNumber(row, index1--);
+        cellSquare(row);
+        cellNumber(row, index2--);
+    }
+}
+
+//функция для пустой ячейки в строке с алфавитом
+function cellNumber(row, index) {
+    let cell = document.createElement('div')
+    cell.className = 'cell__number'
+    cell.innerText = index;
+    row.append(cell)
+    board.append(row)
+}
+
+//функция для пустой ячейки в строке с цифрами
+function cellNumberDef(row) {
+    let cell = document.createElement('div')
+    cell.className = 'cell__number'
+    row.append(cell)
+    board.append(row)
+}
+
+//создание ячеек
+function cellSquare(row) {
+    for (let i = 0; i < number.length; i++) {
+        let cell = document.createElement('div')
+        cell.className = 'cell'
+
+        switch (row.id) {
+            case 'x0':
+                cell.innerText = alphabetFigures[i]
+                break
+            case 'x1':
+                cell.classList.add('figure__peshka--black')
+                cell.innerHTML = ' <svg>\n' +
+                    '     <use xlink:href="images/sprite.svg#pawn"></use>\n' +
+                    ' </svg>'
+                break
+            case 'x6':
+                cell.classList.add('figure__peshka---white')
+                cell.innerHTML = ' <svg>\n' +
+                    '     <use xlink:href="images/sprite.svg#pawn"></use>\n' +
+                    ' </svg>'
+                break
+            case 'x7':
+                cell.innerText = alphabetFigures[i]
+                break
+        }
+
+        let rook = document.getEle
+        row.append(cell)
+        board.append(row)
+    }
+}
