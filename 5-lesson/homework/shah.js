@@ -65,29 +65,71 @@ function cellSquare(row) {
         let cell = document.createElement('div')
         cell.className = 'cell'
 
-        switch (row.id) {
-            case 'x0':
-                cell.innerText = alphabetFigures[i]
-                break
-            case 'x1':
-                cell.classList.add('figure__peshka--black')
-                cell.innerHTML = ' <svg>\n' +
-                    '     <use xlink:href="images/sprite.svg#pawn"></use>\n' +
-                    ' </svg>'
-                break
-            case 'x6':
-                cell.classList.add('figure__peshka---white')
-                cell.innerHTML = ' <svg>\n' +
-                    '     <use xlink:href="images/sprite.svg#pawn"></use>\n' +
-                    ' </svg>'
-                break
-            case 'x7':
-                cell.innerText = alphabetFigures[i]
-                break
-        }
+        pawnFigures(row, cell, i)
+        otherFigures(row, cell)
 
-        let rook = document.getEle
         row.append(cell)
         board.append(row)
+    }
+}
+
+//Ячейки с другими фигурами
+function otherFigures(row, cell) {
+    if (row.id == 'x0') {
+        cell.className += ' figure__other--black'
+    } else if (row.id == 'x7') {
+        cell.className += ' figure__other--white'
+    }
+    switch (cell.innerText) {
+        case 'rook':
+            cell.innerHTML = ' <svg>\n' +
+                '     <use xlink:href="images/sprite.svg#rook"></use>\n' +
+                ' </svg>'
+            break
+        case 'horse':
+            cell.innerHTML = ' <svg>\n' +
+                '     <use xlink:href="images/sprite.svg#horse"></use>\n' +
+                ' </svg>'
+            break
+        case 'elephant':
+            cell.innerHTML = ' <svg>\n' +
+                '     <use xlink:href="images/sprite.svg#elephant"></use>\n' +
+                ' </svg>'
+            break
+        case 'queen':
+            cell.innerHTML = ' <svg>\n' +
+                '     <use xlink:href="images/sprite.svg#queen"></use>\n' +
+                ' </svg>'
+            break
+        case 'king':
+            cell.innerHTML = ' <svg>\n' +
+                '     <use xlink:href="images/sprite.svg#king"></use>\n' +
+                ' </svg>'
+            break
+    }
+}
+
+//Ячейки с пешками
+function pawnFigures(row, cell, i) {
+    switch (row.id) {
+        case 'x0':
+            cell.innerText = alphabetFigures[i]
+            break
+        case 'x1':
+            cell.className += ' figure__pawn--black'
+            cell.innerHTML = ' <svg>\n' +
+                '     <use xlink:href="images/sprite.svg#pawn"></use>\n' +
+                ' </svg>'
+            break
+        case 'x6':
+            cell.className += ' figure__pawn--white'
+
+            cell.innerHTML = ' <svg>\n' +
+                '     <use xlink:href="images/sprite.svg#pawn"></use>\n' +
+                ' </svg>'
+            break
+        case 'x7':
+            cell.innerText = alphabetFigures[i]
+            break
     }
 }

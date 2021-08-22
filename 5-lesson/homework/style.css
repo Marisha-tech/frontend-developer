@@ -66,18 +66,49 @@
   transform: rotate(180deg);
 }
 
-.figure__peshka--black{
+.figure__pawn--black{
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% / 8);
 }
-.figure__peshka---white{
+.figure__pawn--white{
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% / 8);
 }
-.figure__peshka--black svg{
+.figure__pawn--black svg{
   fill: black;
   width: 60px;
   height: 60px;
 }
-.figure__peshka---white svg{
+.figure__pawn--white svg{
+  fill: white;
+  width: 60px;
+  height: 60px;
+}
+
+.figure__other--black{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% / 8);
+}
+
+.figure__other--black svg{
+  fill: black;
+  width: 60px;
+  height: 60px;
+}
+.figure__other--white{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% / 8);
+}
+
+.figure__other--white svg{
   fill: white;
   width: 60px;
   height: 60px;
