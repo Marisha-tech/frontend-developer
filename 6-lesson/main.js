@@ -44,6 +44,7 @@ let a3 = document.querySelector('#a3')
 let a = document.querySelectorAll('a')
 for (let i = 0; i < a.length; i++){
     a[i].onclick = f
+
 }
 // a1.onclick = f //ВАЖНО: запускать функцию без ()
 
