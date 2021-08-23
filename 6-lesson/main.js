@@ -49,5 +49,20 @@ for (let i = 0; i < a.length; i++){
 // a1.onclick = f //ВАЖНО: запускать функцию без ()
 
 // Генератор событий с помощью свойства addEventListener()
+// addEventListener() - регистрация события
 
+let b1 = document.getElementById('b1')
+let b2 = document.getElementById('b2')
+let b3 = document.getElementById('b3')
 
+b2.addEventListener("click", f1)
+b2.addEventListener("click", f2)
+
+function f1(event) {
+    console.log('Функция f1 вызвана. Итсточник - ' + event.target)
+}
+
+function f2() {
+    console.log('Функция f2 вызван')
+    b2.removeEventListener("click", f2)
+}
