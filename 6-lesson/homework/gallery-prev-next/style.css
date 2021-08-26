@@ -5,6 +5,7 @@ img {
 #image-2 {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .images__allocated--border {
