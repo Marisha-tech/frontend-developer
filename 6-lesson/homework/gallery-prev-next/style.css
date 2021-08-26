@@ -1,0 +1,23 @@
+img {
+    display: block;
+}
+
+#image-2 {
+    display: flex;
+    justify-content: center;
+}
+
+.images__allocated--border {
+    border: 5px solid green;
+}
+
+.images__allocated--big {
+    width: 500px;
+}
+
+.images__prev--left svg, .images__prev--right svg{
+    fill: black;
+    width: 60px;
+    height: 60px;
+}
+
