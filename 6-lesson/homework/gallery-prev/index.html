@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../gallery-prev/style.css">
+    <title>Галерея с проверкой отсутствия изображения</title>
+</head>
+<body>
+<h1>Галерея с проверкой отсутствия изображения + переключение слайдера</h1>
+<div class="small" id="small">
+    <img class="small__img" id="img-1" src="images/small/img-1.jpg" alt="">
+    <img class="small__img" id="img-2" src="images/small/img-2.jpg" alt="">
+    <img class="small__img" id="img-3" src="images/small/img-3.jpg" alt="">
+    <img class="small__img" id="img-4" src="images/small/img-4.jpg" alt="">
+    <img class="small__img" id="img-5" src="images/small/img-5.jpg" alt="">
+    <img class="small__img" id="img-6" src="images/small/img-6.jpg" alt="">
+    <img class="small__img" id="img-7" src="images/small/img-7.jpg" alt="">
+</div>
+<div class="gallery">
+    <div class="prev" onclick="prev()">
+        <svg>
+            <use xlink:href="images/sprite.svg#prev"></use>
+        </svg>
+    </div>
+    <div class="big" id="big">
+        <img class="big__img" id="big-img" src="images/big/img-1.jpg" alt="" onerror=ImageError()>
+    </div>
+    <div class="next" onclick="next()">
+        <svg>
+            <use xlink:href="images/sprite.svg#next"></use>
+        </svg>
+    </div>
+</div>
+
+<script src="../gallery-prev/main.js"></script>
+</body>
+</html>
