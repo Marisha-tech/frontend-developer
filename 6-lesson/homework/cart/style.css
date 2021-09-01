@@ -1,0 +1,35 @@
+.cart {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.cart__left {
+    width: 30%;
+    border: 1px solid #323232;
+    margin-right: 20px;
+}
+
+.cart__right {
+    border: 1px solid #cccccc;
+
+}
+
+.cart__right {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.cart__item {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    border: 1px solid #cccccc;
+    padding: 10px;
+}
+
+.cart__left {
+    display: flex;
+    flex-direction: column;
+}
