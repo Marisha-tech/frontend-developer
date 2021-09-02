@@ -43,7 +43,7 @@ let good6 = {
 let goods = [good1, good2, good3, good4, good5, good6]
 let sum = 0
 let item
-window.onload = goodsList//вызов функции при загрузке страницы
+window.onload = goodsList //вызов функции после загрузки страницы
 
 function goodsList() {
     let cartRight = document.getElementsByClassName('cart__right')[0]
@@ -81,7 +81,7 @@ function goodsList() {
         itemBuy.innerText = 'Купить'
         itemBuy.setAttribute('class', 'cart__button')
         itemBuy.setAttribute('id', 'btn_' + i)
-        itemBuy.onclick = addItem
+        itemBuy.onclick = addItem //при клике на "Купить" вызывается функция addItem
         item.appendChild(itemBuy)
 
         cartRight.appendChild(item)
@@ -91,7 +91,26 @@ function goodsList() {
 //Функция добавления товара в корзину
 function addItem(event) {
     let selectedItem = goods[event.target.id.split('_')[1]]//выбранный товар из списка
-    let
-    console.log(selectedItem)
+    let cart = document.getElementsByClassName('cart__left')[0]
+
+    let cartList = document.createElement('div')
+    cartList.setAttribute('class', 'cart__list')
+    cart.appendChild(cartList)
+
+    //Добавление наименования товара в корзину
+    let cartListTitle = document.createElement('span')
+    cartListTitle.innerText = selectedItem.name
+    cartListTitle.setAttribute('class', 'cart__list--title')
+    cart.appendChild(cartListTitle)
+
+    //Добавление цены товара в корзину
+    let cartListPrice = document.createElement('span')
+    cartListPrice.innerText = selectedItem.price + '\u20bd'
+    cartListPrice.setAttribute('class', 'cart__list--price')
+    cart.appendChild(cartListPrice)
+
+    //Общая сумма заказа
+    sum += selectedItem.price
+    document.getElementsByClassName('sum')[0].textContent = 'Сумма заказа: ' + sum + '\u20bd'
 }
 
